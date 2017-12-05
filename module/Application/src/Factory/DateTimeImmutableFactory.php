@@ -11,6 +11,9 @@ namespace Application\Factory;
 
 final class DateTimeImmutableFactory
 {
+    /**
+     * @return \DateTimeImmutable
+     */
     public function __invoke() : \DateTimeImmutable
     {
         return new \DateTimeImmutable();

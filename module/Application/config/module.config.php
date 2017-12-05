@@ -11,6 +11,12 @@ use Application\Factory;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
+use Symfony\Component\Dotenv\Dotenv;
+
+if (is_file(__DIR__.'/../../../.env')) {
+    $dotenv = new Dotenv();
+    $dotenv->load(__DIR__.'/../../../.env');
+}
 
 return [
     'router' => [
@@ -18,30 +24,30 @@ return [
             'home' => [
                 'type' => Literal::class,
                 'options' => [
-                    'route'    => '/',
+                    'route' => '/',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
-                        'action'     => 'index',
+                        'action' => 'index',
                     ],
                 ],
             ],
             'ping' => [
                 'type' => Literal::class,
                 'options' => [
-                    'route'    => '/date',
+                    'route' => '/date',
                     'defaults' => [
                         'controller' => Controller\PingController::class,
-                        'action'     => 'index',
+                        'action' => 'index',
                     ],
                 ],
             ],
             'application' => [
-                'type'    => Segment::class,
+                'type' => Segment::class,
                 'options' => [
-                    'route'    => '/application[/:action]',
+                    'route' => '/application[/:action]',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
-                        'action'     => 'index',
+                        'action' => 'index',
                     ],
                 ],
             ],
@@ -55,20 +61,20 @@ return [
     ],
     "service_manager" => [
         "factories" => [
-            \DateTimeImmutable::class => Factory\DateTimeImmutableFactory::class
+            \DateTimeImmutable::class => InvokableFactory::class
         ]
     ],
     'view_manager' => [
         'display_not_found_reason' => true,
-        'display_exceptions'       => true,
-        'doctype'                  => 'HTML5',
-        'not_found_template'       => 'error/404',
-        'exception_template'       => 'error/index',
+        'display_exceptions' => true,
+        'doctype' => 'HTML5',
+        'not_found_template' => 'error/404',
+        'exception_template' => 'error/index',
         'template_map' => [
-            'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
+            'layout/layout' => __DIR__ . '/../view/layout/layout.phtml',
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
-            'error/404'               => __DIR__ . '/../view/error/404.phtml',
-            'error/index'             => __DIR__ . '/../view/error/index.phtml',
+            'error/404' => __DIR__ . '/../view/error/404.phtml',
+            'error/index' => __DIR__ . '/../view/error/index.phtml',
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',

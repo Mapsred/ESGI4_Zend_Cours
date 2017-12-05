@@ -9,11 +9,20 @@
 namespace Application\Factory;
 
 use Application\Controller\PingController;
-use Psr\Container\ContainerInterface;
+use Interop\Container\ContainerInterface;
+use Zend\ServiceManager\Factory\FactoryInterface;
 
-class PingControllerFactory
+class PingControllerFactory implements FactoryInterface
 {
-    public function __invoke(ContainerInterface $container): PingController
+    /**
+     * @param ContainerInterface $container
+     * @param string $requestedName
+     * @param array|null $options
+     * @return PingController
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface
+     */
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
         $dateTime = $container->get(\DateTimeImmutable::class);
 
