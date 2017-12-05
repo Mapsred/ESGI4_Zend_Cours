@@ -1,0 +1,43 @@
+version: "3.1"
+services:
+    mariadb:
+      image: mariadb:latest
+      container_name: zend-development-mariadb
+      working_dir: /application
+      volumes:
+        - .:/application
+      environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_DATABASE=zend-development
+        - MYSQL_USER=zend-development
+        - MYSQL_PASSWORD=zend-development
+      ports:
+        - "8152:3306"
+
+    webserver:
+      image: nginx:stable
+      container_name: zend-development-webserver
+      working_dir: /application
+      volumes:
+          - .:/application
+          - ./engine/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      ports:
+       - "8052:80"
+
+    php-fpm:
+      build: engine/php-fpm
+      container_name: zend-development-php-fpm
+      working_dir: /application
+      volumes:
+        - .:/application
+        - ./engine/php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
+
+    phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      links:
+        - mariadb:db
+      ports:
+        - "8252:80"
+      environment:
+        MYSQL_USERNAME: root
+        MYSQL_ROOT_PASSWORD: root
