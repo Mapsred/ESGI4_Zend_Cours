@@ -9,7 +9,7 @@
 namespace Application\Factory;
 
 use Application\Controller\PingController;
-use Application\Utils\Underscore;
+use Application\Utils\UnderscoreUtil;
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
@@ -25,7 +25,7 @@ class PingControllerFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        $underscore = $container->get(Underscore::class);
+        $underscore = $container->get(UnderscoreUtil::class);
 
         return new PingController($underscore);
     }

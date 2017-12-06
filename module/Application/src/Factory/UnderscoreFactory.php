@@ -9,7 +9,9 @@
 namespace Application\Factory;
 
 
-use Application\Utils\Underscore;
+use Application\Repository\FilmRepository;
+use Application\Utils\UnderscoreUtil;
+use Doctrine\ORM\EntityManager;
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
@@ -21,15 +23,18 @@ class UnderscoreFactory implements FactoryInterface
      * @param  ContainerInterface $container
      * @param  string $requestedName
      * @param  null|array $options
-     * @return Underscore
+     * @return UnderscoreUtil
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
         $datetimeImmutable = $container->get(\DateTimeImmutable::class);
+        /** @var EntityManager $manager */
         $manager = $container->get('doctrine.entitymanager.orm_default');
+        /** @var FilmRepository $filmRepository */
+        $filmRepository = $manager->getRepository("Application\Entity\Film");
 
-        return new Underscore($datetimeImmutable, $manager);
+        return new UnderscoreUtil($datetimeImmutable, $filmRepository);
     }
 }

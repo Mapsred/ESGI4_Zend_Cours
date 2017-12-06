@@ -9,6 +9,7 @@ return [
                 'cache' => 'array',
                 'paths' => [
                     __DIR__.'/../../module/Application/src/Entity',
+                    __DIR__.'/../../module/Application/src/Repository',
                 ],
             ],
 
@@ -18,6 +19,7 @@ return [
                 'drivers' => [
                     // register `default_driver` for any entity under namespace `My\Namespace`
                     'Application\Entity' => 'default_driver',
+                    'Application\Repository' => 'default_driver',
                 ],
             ],
         ],

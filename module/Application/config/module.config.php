@@ -41,6 +41,16 @@ return [
                     ],
                 ],
             ],
+            'films' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route' => '/films',
+                    'defaults' => [
+                        'controller' => Controller\PingController::class,
+                        'action' => 'films',
+                    ],
+                ],
+            ],
             'application' => [
                 'type' => Segment::class,
                 'options' => [
@@ -62,7 +72,7 @@ return [
     "service_manager" => [
         "factories" => [
             \DateTimeImmutable::class => InvokableFactory::class,
-            Utils\Underscore::class => Factory\UnderscoreFactory::class,
+            Utils\UnderscoreUtil::class => Factory\UnderscoreFactory::class,
         ]
     ],
     'view_manager' => [
