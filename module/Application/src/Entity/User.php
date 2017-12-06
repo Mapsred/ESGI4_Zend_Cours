@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Class User
  *
  * @ORM\Table(name="user")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Application\Repository\UserRepository")
  */
 class User
 {

@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @package Application\Entity
  * @ORM\Table(name="films")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Application\Repository\FilmRepository")
  */
 class Film
 {
