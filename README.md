@@ -10,5 +10,6 @@ Run ``docker-compose up`` to build the network
 
 copy ``.env.dist`` to ``.env``
 
-###References : 
+###References 
+
 https://github.com/engineor/esgi-zf3-december-2017
