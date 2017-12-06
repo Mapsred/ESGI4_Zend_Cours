@@ -20,7 +20,7 @@
         "doctrine/doctrine-orm-module": "^1.1",
         "symfony/dotenv": "^4.0",
         "ramsey/uuid": "^3.7",
-        "zendframework/zend-mvc-form": "^1.0"
+        "zendframework/zend-form": "^2.10"
     },
     "autoload": {
         "psr-4": {

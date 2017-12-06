@@ -10,9 +10,9 @@ namespace Contact\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-class IndexController extends AbstractActionController
+class ContactController extends AbstractActionController
 {
-    public function indexAction()
+    public function contactAction()
     {
         return new ViewModel();
     }
