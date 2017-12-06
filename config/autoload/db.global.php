@@ -1,5 +1,12 @@
 <?php
 
+use Symfony\Component\Dotenv\Dotenv;
+
+if (is_file(__DIR__ . '/../../.env')) {
+    $dotenv = new Dotenv();
+    $dotenv->load(__DIR__ . '/../../.env');
+}
+
 return [
     'doctrine' => [
         'connection' => [

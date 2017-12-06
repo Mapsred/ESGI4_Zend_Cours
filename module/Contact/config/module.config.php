@@ -5,9 +5,8 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Application;
+namespace Contact;
 
-use Application\Factory;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
@@ -22,26 +21,6 @@ return [
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action' => 'index',
-                    ],
-                ],
-            ],
-            'ping' => [
-                'type' => Literal::class,
-                'options' => [
-                    'route' => '/date',
-                    'defaults' => [
-                        'controller' => Controller\PingController::class,
-                        'action' => 'index',
-                    ],
-                ],
-            ],
-            'films' => [
-                'type' => Literal::class,
-                'options' => [
-                    'route' => '/films',
-                    'defaults' => [
-                        'controller' => Controller\PingController::class,
-                        'action' => 'films',
                     ],
                 ],
             ],
@@ -60,13 +39,10 @@ return [
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
-            Controller\PingController::class => Factory\PingControllerFactory::class,
         ],
     ],
     "service_manager" => [
         "factories" => [
-            \DateTimeImmutable::class => InvokableFactory::class,
-            Utils\UnderscoreUtil::class => Factory\UnderscoreFactory::class,
         ]
     ],
     'view_manager' => [
