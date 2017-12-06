@@ -61,7 +61,8 @@ return [
     ],
     "service_manager" => [
         "factories" => [
-            \DateTimeImmutable::class => InvokableFactory::class
+            \DateTimeImmutable::class => InvokableFactory::class,
+            Utils\Underscore::class => Factory\UnderscoreFactory::class,
         ]
     ],
     'view_manager' => [

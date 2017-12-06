@@ -8,29 +8,30 @@
 
 namespace Application\Controller;
 
+use Application\Utils\Underscore;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 final class PingController extends AbstractActionController
 {
     /**
-     * @var \DateTimeImmutable $dateTimeImmutable
+     * @var Underscore
      */
-    private $dateTimeImmutable;
+    private $underscore;
 
     /**
      * PingController constructor.
-     * @param \DateTimeImmutable $dateTimeImmutable
+     * @param Underscore $underscore
      */
-    public function __construct(\DateTimeImmutable $dateTimeImmutable)
+    public function __construct(Underscore $underscore)
     {
-        $this->dateTimeImmutable = $dateTimeImmutable;
+        $this->underscore = $underscore;
     }
 
     public function indexAction() : ViewModel
     {
         return new ViewModel([
-            'content' => $this->dateTimeImmutable->format('d/m/Y H:i:s')
+            'content' => $this->underscore->dateTimeImmutable->format('d/m/Y H:i:s')
         ]);
     }
 }

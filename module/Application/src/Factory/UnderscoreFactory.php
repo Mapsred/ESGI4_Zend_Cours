@@ -3,30 +3,33 @@
  * Created by PhpStorm.
  * User: francois.mathieu
  * Date: 05/12/2017
- * Time: 16:29
+ * Time: 18:24
  */
 
 namespace Application\Factory;
 
-use Application\Controller\PingController;
+
 use Application\Utils\Underscore;
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
-class PingControllerFactory implements FactoryInterface
+class UnderscoreFactory implements FactoryInterface
 {
     /**
-     * @param ContainerInterface $container
-     * @param string $requestedName
-     * @param array|null $options
-     * @return PingController
+     * Create an object
+     *
+     * @param  ContainerInterface $container
+     * @param  string $requestedName
+     * @param  null|array $options
+     * @return Underscore
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        $underscore = $container->get(Underscore::class);
+        $datetimeImmutable = $container->get(\DateTimeImmutable::class);
+        $manager = $container->get('doctrine.entitymanager.orm_default');
 
-        return new PingController($underscore);
+        return new Underscore($datetimeImmutable, $manager);
     }
 }
