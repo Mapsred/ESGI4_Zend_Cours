@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "15d57c89575b161bd784d863f293a81e",
+    "content-hash": "aa16f3d551655c8fd3d84ac5534cc8ea",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -1941,6 +1941,73 @@
             "time": "2017-10-02T15:01:27+00:00"
         },
         {
+            "name": "zendframework/zend-i18n",
+            "version": "2.7.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-i18n.git",
+                "reference": "d3431e29cc00c2a1c6704e601d4371dbf24f6a31"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-i18n/zipball/d3431e29cc00c2a1c6704e601d4371dbf24f6a31",
+                "reference": "d3431e29cc00c2a1c6704e601d4371dbf24f6a31",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0 || ^5.6",
+                "zendframework/zend-stdlib": "^2.7 || ^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0.8 || ^5.7.15",
+                "zendframework/zend-cache": "^2.6.1",
+                "zendframework/zend-coding-standard": "~1.0.0",
+                "zendframework/zend-config": "^2.6",
+                "zendframework/zend-eventmanager": "^2.6.2 || ^3.0",
+                "zendframework/zend-filter": "^2.6.1",
+                "zendframework/zend-servicemanager": "^2.7.5 || ^3.0.3",
+                "zendframework/zend-validator": "^2.6",
+                "zendframework/zend-view": "^2.6.3"
+            },
+            "suggest": {
+                "ext-intl": "Required for most features of Zend\\I18n; included in default builds of PHP",
+                "zendframework/zend-cache": "Zend\\Cache component",
+                "zendframework/zend-config": "Zend\\Config component",
+                "zendframework/zend-eventmanager": "You should install this package to use the events in the translator",
+                "zendframework/zend-filter": "You should install this package to use the provided filters",
+                "zendframework/zend-i18n-resources": "Translation resources",
+                "zendframework/zend-servicemanager": "Zend\\ServiceManager component",
+                "zendframework/zend-validator": "You should install this package to use the provided validators",
+                "zendframework/zend-view": "You should install this package to use the provided view helpers"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7-dev",
+                    "dev-develop": "2.8-dev"
+                },
+                "zf": {
+                    "component": "Zend\\I18n",
+                    "config-provider": "Zend\\I18n\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\I18n\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "homepage": "https://github.com/zendframework/zend-i18n",
+            "keywords": [
+                "i18n",
+                "zf2"
+            ],
+            "time": "2017-05-17T17:00:12+00:00"
+        },
+        {
             "name": "zendframework/zend-inputfilter",
             "version": "2.8.0",
             "source": {
@@ -2039,6 +2106,56 @@
                 "zf2"
             ],
             "time": "2015-06-03T14:05:47+00:00"
+        },
+        {
+            "name": "zendframework/zend-math",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-math.git",
+                "reference": "fda3b4e6c3bb15c35adc6db38b2eacabaa243e65"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-math/zipball/fda3b4e6c3bb15c35adc6db38b2eacabaa243e65",
+                "reference": "fda3b4e6c3bb15c35adc6db38b2eacabaa243e65",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "paragonie/random_compat": "^2.0.2",
+                "php": "^5.5 || ^7.0"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "1.7.*",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "ext-bcmath": "If using the bcmath functionality",
+                "ext-gmp": "If using the gmp functionality"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev",
+                    "dev-develop": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Math\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "homepage": "https://github.com/zendframework/zend-math",
+            "keywords": [
+                "math",
+                "zf2"
+            ],
+            "time": "2016-04-28T17:37:42+00:00"
         },
         {
             "name": "zendframework/zend-modulemanager",
@@ -2360,6 +2477,76 @@
                 "zf"
             ],
             "time": "2017-11-27T18:11:25+00:00"
+        },
+        {
+            "name": "zendframework/zend-session",
+            "version": "2.8.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-session.git",
+                "reference": "c14be63df39b0caee784e53cd57c43eb48efefea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-session/zipball/c14be63df39b0caee784e53cd57c43eb48efefea",
+                "reference": "c14be63df39b0caee784e53cd57c43eb48efefea",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0",
+                "zendframework/zend-eventmanager": "^2.6.2 || ^3.0",
+                "zendframework/zend-stdlib": "^2.7 || ^3.0"
+            },
+            "conflict": {
+                "phpunit/phpunit": ">=6.5.0"
+            },
+            "require-dev": {
+                "container-interop/container-interop": "^1.1",
+                "mongodb/mongodb": "^1.0.1",
+                "php-mock/php-mock-phpunit": "^1.1.2 || ^2.0",
+                "phpunit/phpunit": "^5.7.5 || ^6.0.13",
+                "zendframework/zend-cache": "^2.6.1",
+                "zendframework/zend-coding-standard": "~1.0.0",
+                "zendframework/zend-db": "^2.7",
+                "zendframework/zend-http": "^2.5.4",
+                "zendframework/zend-servicemanager": "^2.7.5 || ^3.0.3",
+                "zendframework/zend-validator": "^2.6"
+            },
+            "suggest": {
+                "mongodb/mongodb": "If you want to use the MongoDB session save handler",
+                "zendframework/zend-cache": "Zend\\Cache component",
+                "zendframework/zend-db": "Zend\\Db component",
+                "zendframework/zend-http": "Zend\\Http component",
+                "zendframework/zend-servicemanager": "Zend\\ServiceManager component",
+                "zendframework/zend-validator": "Zend\\Validator component"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev",
+                    "dev-develop": "2.9-dev"
+                },
+                "zf": {
+                    "component": "Zend\\Session",
+                    "config-provider": "Zend\\Session\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Session\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "manage and preserve session data, a logical complement of cookie data, across multiple page requests by the same client",
+            "keywords": [
+                "ZendFramework",
+                "session",
+                "zf"
+            ],
+            "time": "2017-12-01T17:35:04+00:00"
         },
         {
             "name": "zendframework/zend-stdlib",

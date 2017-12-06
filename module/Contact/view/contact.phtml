@@ -1,3 +1,20 @@
+<?php
+
+use Contact\Form\ContactForm;
+use Zend\Form\View\Helper\FormLabel;
+
+/** @var ContactForm $form */
+$form = $this->form;
+$form
+    ->prepare()
+    ->setAttribute('action', $this->url('contact'))
+    ->setAttribute('method', 'post');
+
+/** @var FormLabel $formLabel */
+$formLabel = $this->plugin('formLabel');
+?>
+
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -9,5 +26,32 @@
 </head>
 <body>
 <h1>Contact</h1>
+<?= $this->form()->openTag($form); ?>
+<div class="form_element">
+    <?php
+    $name = $form->get('name');
+    echo $formLabel->openTag();
+    echo $name->getOption('label');
+    echo $this->formInput($name);
+    echo $this->formElementErrors($name);
+    echo $formLabel->closeTag();
+    ?>
+</div>
+
+<div class="form_element">
+    <?php
+    $email = $form->get('email');
+    echo $formLabel->openTag();
+    echo $email->getOption('label');
+    echo $this->formInput($email);
+    echo $this->formElementErrors($email);
+    echo $formLabel->closeTag();
+    ?>
+</div>
+
+<?= $this->formElement($form->get('security')) ?>
+<?= $this->formElement($form->get('send')) ?>
+<?= $this->form()->closeTag() ?>
+
 </body>
 </html>
