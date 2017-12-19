@@ -7,6 +7,7 @@
 
 namespace Contact;
 
+use Contact\Manager;
 use Zend\Router\Http\Literal;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
@@ -27,11 +28,13 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\ContactController::class => InvokableFactory::class,
+            Controller\ContactController::class => Factory\ControllerManagerFactory::class,
+//            Controller\ContactController::class => InvokableFactory::class,
         ],
     ],
     "service_manager" => [
         "factories" => [
+            Manager\ContactManager::class => Factory\ManagerFactory::class,
         ]
     ],
     'view_manager' => [

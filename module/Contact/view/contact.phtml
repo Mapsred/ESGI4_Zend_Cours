@@ -7,13 +7,18 @@ use Zend\Form\View\Helper\FormLabel;
 $form = $this->form;
 $form
     ->prepare()
-    ->setAttribute('action', $this->url('contact'))
-    ->setAttribute('method', 'post');
+    ->setAttributes([
+        'action' => $this->url('contact'),
+        'method' => 'post',
+        'class' => 'form'
+    ]);
 
 /** @var FormLabel $formLabel */
 $formLabel = $this->plugin('formLabel');
-?>
+$name = $form->get('name');
+$email = $form->get('email');
 
+?>
 
 <!doctype html>
 <html lang="fr">
@@ -25,28 +30,22 @@ $formLabel = $this->plugin('formLabel');
     <title>Document</title>
 </head>
 <body>
+<?php
+echo $this->partial('flashbag.phtml', ['flash' => $this->flashMessenger()]);
+
+?>
 <h1>Contact</h1>
 <?= $this->form()->openTag($form); ?>
-<div class="form_element">
-    <?php
-    $name = $form->get('name');
-    echo $formLabel->openTag();
-    echo $name->getOption('label');
-    echo $this->formInput($name);
-    echo $this->formElementErrors($name);
-    echo $formLabel->closeTag();
-    ?>
+<div class="form-group">
+    <?= $formLabel($name); ?>
+    <?= $this->formInput($name); ?>
+    <?= $this->formElementErrors($name); ?>
 </div>
 
-<div class="form_element">
-    <?php
-    $email = $form->get('email');
-    echo $formLabel->openTag();
-    echo $email->getOption('label');
-    echo $this->formInput($email);
-    echo $this->formElementErrors($email);
-    echo $formLabel->closeTag();
-    ?>
+<div class="form-group">
+    <?= $formLabel($email); ?>
+    <?= $this->formInput($email); ?>
+    <?= $this->formElementErrors($email); ?>
 </div>
 
 <?= $this->formElement($form->get('security')) ?>

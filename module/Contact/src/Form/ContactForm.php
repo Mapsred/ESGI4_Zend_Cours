@@ -7,24 +7,30 @@ use Zend\Form\Form;
 
 class ContactForm extends Form
 {
-    protected $captcha;
-
+    /**
+     * ContactForm constructor.
+     * @param null $name
+     * @param array $options
+     */
     public function __construct($name = null, $options = [])
     {
         parent::__construct($name, $options);
 
         $this->add([
+            'type' => 'Zend\Form\Element\Text',
             'name' => 'name',
             'options' => ['label' => 'Your name'],
-            'type' => 'Text'
+            'attributes' => ['class' => 'form-control'],
         ])->add([
             'type' => 'Zend\Form\Element\Email',
             'name' => 'email',
-            'options' => ['label' => 'Your email address']
+            'options' => ['label' => 'Your email address'],
+            'attributes' => ['class' => 'form-control'],
         ])->add([
             'name' => 'send',
-            'type' => 'Submit',
-            'attributes' => ['value' => 'Submit'],
+            'type' => 'Zend\Form\Element\Submit',
+            'attributes' => ['value' => 'Submit', 'class' => 'btn btn-default'],
+
         ])->add(new Csrf('security'));
 
     }
