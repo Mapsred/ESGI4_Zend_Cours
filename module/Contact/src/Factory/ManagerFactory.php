@@ -8,7 +8,9 @@
 
 namespace Contact\Factory;
 
+use Contact\Form\ContactForm;
 use Contact\Manager\BaseManager;
+use Contact\Manager\ContactManager;
 use Doctrine\ORM\EntityManager;
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
@@ -30,6 +32,11 @@ class ManagerFactory implements FactoryInterface
         /** @var EntityManager $manager */
         $manager = $container->get('doctrine.entitymanager.orm_default');
 
-        return new $requestedName($manager);
+        $form = null;
+        if ($requestedName === ContactManager::class) {
+            $form = new ContactForm();
+        }
+
+        return new $requestedName($manager, $form);
     }
 }

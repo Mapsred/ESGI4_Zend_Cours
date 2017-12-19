@@ -11,6 +11,13 @@ namespace Contact\Manager;
 use Contact\Entity\Contact;
 use Contact\Form\ContactForm;
 
+/**
+ * Class ContactManager
+ *
+ * @author François MATHIEU <francois.mathieu@livexp.fr>
+ * @method ContactForm getForm()
+ * @method ContactForm persistAndFlush($entity)
+ */
 class ContactManager extends BaseManager
 {
     /**

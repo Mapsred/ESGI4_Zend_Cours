@@ -10,17 +10,28 @@ namespace Contact\Manager;
 
 
 use Doctrine\ORM\EntityManager;
+use Zend\Form\Form;
 
 abstract class BaseManager
 {
     /**
-     * @var EntityManager
+     * @var EntityManager $manager
      */
     private $manager;
+    /**
+     * @var Form $form
+     */
+    private $form;
 
-    public function __construct(EntityManager $manager)
+    /**
+     * BaseManager constructor.
+     * @param EntityManager $manager
+     * @param Form $form
+     */
+    public function __construct(EntityManager $manager, Form $form)
     {
         $this->manager = $manager;
+        $this->form = $form;
     }
 
     /**
@@ -29,6 +40,14 @@ abstract class BaseManager
     public function getManager(): EntityManager
     {
         return $this->manager;
+    }
+
+    /**
+     * @return Form
+     */
+    public function getForm(): Form
+    {
+        return $this->form;
     }
 
     /**

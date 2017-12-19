@@ -24,7 +24,8 @@
         "zendframework/zend-math": "^3.0",
         "zendframework/zend-session": "^2.8",
         "zendframework/zend-i18n": "^2.7",
-        "zendframework/zend-mvc-plugin-flashmessenger": "^1.0"
+        "zendframework/zend-mvc-plugin-flashmessenger": "^1.0",
+        "doctrine/common": "^2.8"
     },
     "autoload": {
         "psr-4": {

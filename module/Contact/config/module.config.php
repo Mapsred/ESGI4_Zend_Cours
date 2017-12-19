@@ -29,7 +29,6 @@ return [
     'controllers' => [
         'factories' => [
             Controller\ContactController::class => Factory\ControllerManagerFactory::class,
-//            Controller\ContactController::class => InvokableFactory::class,
         ],
     ],
     "service_manager" => [

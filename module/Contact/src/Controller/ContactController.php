@@ -32,7 +32,7 @@ class ContactController extends AbstractActionController
      */
     public function contactAction()
     {
-        $form = new ContactForm();
+        $form = $this->contactManager->getForm();
 
         /** @var Request $request */
         $request = $this->getRequest();
