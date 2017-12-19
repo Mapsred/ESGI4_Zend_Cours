@@ -5,6 +5,11 @@ namespace Contact\Form;
 use Zend\Form\Element\Csrf;
 use Zend\Form\Form;
 
+/**
+ * Class ContactForm
+ *
+ * @author François MATHIEU <francois.mathieu@livexp.fr>
+ */
 class ContactForm extends Form
 {
     /**

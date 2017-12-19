@@ -15,6 +15,11 @@ use Doctrine\ORM\EntityManager;
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
+/**
+ * Class ManagerFactory
+ *
+ * @author François MATHIEU <francois.mathieu@livexp.fr>
+ */
 class ManagerFactory implements FactoryInterface
 {
     /**

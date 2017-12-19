@@ -12,6 +12,11 @@ namespace Contact\Manager;
 use Doctrine\ORM\EntityManager;
 use Zend\Form\Form;
 
+/**
+ * Class BaseManager
+ *
+ * @author François MATHIEU <francois.mathieu@livexp.fr>
+ */
 abstract class BaseManager
 {
     /**

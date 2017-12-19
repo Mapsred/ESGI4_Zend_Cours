@@ -7,7 +7,6 @@
 
 namespace Contact\Controller;
 
-use Contact\Form\ContactForm;
 use Contact\Manager\ContactManager;
 use Zend\Http\Request;
 use Zend\Http\Response;
@@ -15,13 +14,22 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Mvc\Plugin\FlashMessenger\FlashMessenger;
 use Zend\View\Model\ViewModel;
 
+/**
+ * Class ContactController
+ *
+ * @author François MATHIEU <francois.mathieu@livexp.fr>
+ */
 class ContactController extends AbstractActionController
 {
     /**
-     * @var ContactManager
+     * @var ContactManager $contactManager
      */
     private $contactManager;
 
+    /**
+     * ContactController constructor.
+     * @param ContactManager $contactManager
+     */
     public function __construct(ContactManager $contactManager)
     {
         $this->contactManager = $contactManager;

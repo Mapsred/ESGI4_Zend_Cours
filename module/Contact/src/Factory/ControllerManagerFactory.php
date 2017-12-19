@@ -13,6 +13,11 @@ use Contact\Manager\ContactManager;
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
+/**
+ * Class ControllerManagerFactory
+ *
+ * @author François MATHIEU <francois.mathieu@livexp.fr>
+ */
 class ControllerManagerFactory implements FactoryInterface
 {
     /**

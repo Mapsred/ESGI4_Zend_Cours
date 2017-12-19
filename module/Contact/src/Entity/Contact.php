@@ -21,7 +21,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Contact
 {
     /**
-     * @var int
+     * @var int $id
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
