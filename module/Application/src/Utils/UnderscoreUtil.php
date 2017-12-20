@@ -8,7 +8,6 @@
 
 namespace Application\Utils;
 
-
 use Application\Repository\FilmRepository;
 
 class UnderscoreUtil

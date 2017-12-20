@@ -37,5 +37,4 @@ class ControllerManagerFactory implements FactoryInterface
 
         return new ContactController($manager);
     }
-
 }

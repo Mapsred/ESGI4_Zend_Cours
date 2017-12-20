@@ -8,7 +8,6 @@
 
 namespace Contact\Manager;
 
-
 use Doctrine\ORM\EntityManager;
 use Zend\Form\Form;
 
@@ -66,5 +65,4 @@ abstract class BaseManager
 
         return $this;
     }
-
 }

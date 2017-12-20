@@ -6,3 +6,4 @@ data/cache/*
 phpunit.xml
 docker-compose.yml
 .env
+.php_cs.cache

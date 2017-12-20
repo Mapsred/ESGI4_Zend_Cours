@@ -8,7 +8,6 @@
 
 namespace Application\Factory;
 
-
 use Application\Repository\FilmRepository;
 use Application\Utils\UnderscoreUtil;
 use Doctrine\ORM\EntityManager;

@@ -37,6 +37,5 @@ class ContactForm extends Form
             'attributes' => ['value' => 'Submit', 'class' => 'btn btn-default'],
 
         ])->add(new Csrf('security'));
-
     }
 }
