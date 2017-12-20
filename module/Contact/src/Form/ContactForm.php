@@ -4,13 +4,15 @@ namespace Contact\Form;
 
 use Zend\Form\Element\Csrf;
 use Zend\Form\Form;
+use Zend\InputFilter\InputFilterProviderInterface;
+use Zend\Validator;
 
 /**
  * Class ContactForm
  *
  * @author François MATHIEU <francois.mathieu@livexp.fr>
  */
-class ContactForm extends Form
+class ContactForm extends Form implements InputFilterProviderInterface
 {
     /**
      * ContactForm constructor.
@@ -37,5 +39,23 @@ class ContactForm extends Form
             'attributes' => ['value' => 'Submit', 'class' => 'btn btn-default'],
 
         ])->add(new Csrf('security'));
+    }
+
+    /**
+     * Should return an array specification compatible with
+     * {@link Zend\InputFilter\Factory::createInputFilter()}.
+     *
+     * @return array
+     */
+    public function getInputFilterSpecification()
+    {
+        return [
+            'name' => [
+                'validators' => [
+                    ['name' => Validator\StringLength::class, 'options' => ['min' => 2, 'max' => 256]]
+                ],
+            ],
+        ];
+
     }
 }
